@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/rss', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://127.0.0.1:27017/rss', { useNewUrlParser: true, useUnifiedTopology: true }) //can use localhost instead of 127.0.0.1
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
 
