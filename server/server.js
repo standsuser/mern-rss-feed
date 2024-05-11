@@ -2,11 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const Post = require('./models/post');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
+app.use(cors());
 
 mongoose.connect('mongodb://127.0.0.1:27017/rss', { useNewUrlParser: true, useUnifiedTopology: true }) //can use localhost instead of 127.0.0.1
   .then(() => console.log('MongoDB Connected'))
@@ -14,7 +16,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/rss', { useNewUrlParser: true, useUn
 
   app.get('/posts', async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: -1 }).limit(10); // Fetching latest 10 posts
+      const posts = await Post.find().sort({ createdAt: -1 })
       res.json(posts);
     } catch (error) {
       console.error(error);
