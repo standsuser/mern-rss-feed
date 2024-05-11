@@ -28,4 +28,4 @@ This repository contains a MERN (MongoDB, Express.js, React.js, Node.js) stack i
    - `npm run dev` runs both client and server concurrently
 
 
-![General Look](general_look.png)
+![General Look](general-look.png)
